@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: TODO API
+  description: API for managing TODO items
+  version: 1.0.0
+paths:
+  /todos:
+    get:
+      summary: Get TODO list
+      operationId: getTodos
+      responses:
+        '200':
+          description: A list of TODO items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+    post:
+      summary: Create a new TODO item
+      operationId: postTodo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Todo'
+      responses:
+        '201':
+          description: The created TODO item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+  /todos/{id}:
+    delete:
+      summary: Delete a TODO item
+      operationId: deleteTodo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: TODO item deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - 対応済み
+            - 未対応
