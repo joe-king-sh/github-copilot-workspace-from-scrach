@@ -1,0 +1,12 @@
+{
+  "name": "todo-api-with-github-copilot-workspace-from-scrach",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "infra",
+    "server"
+  ],
+  "engines": {
+    "node": "20.11.1"
+  }
+}

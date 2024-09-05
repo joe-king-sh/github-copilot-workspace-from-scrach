@@ -1,0 +1,9 @@
+{
+  "version": "0.2",
+  "language": "ja",
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "*.env"
+  ]
+}
